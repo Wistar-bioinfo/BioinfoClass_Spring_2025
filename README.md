@@ -15,10 +15,9 @@ The Wistar Bioinformatics Class  is a 11-week research training program for PCOM
 
 ### Programs to Install
 
-1. Zoom <https://zoom.us/download>
-2. Slack <https://slack.com/>. If you're familiar with Slack, our slack name is coriellbioinf-se37156. Otherwise you can follow the attached directions in slack_intructions.pdf.
-3. R  <https://cloud.r-project.org/> to download and install R.
-5. RStudio <https://rstudio.com/products/rstudio/download/> and download the FREE version.
+1. Slack <https://slack.com/>, our slack name is `wistar_bioinfo_spring2025`. 
+2. R  <https://cloud.r-project.org/> to download and install R.
+3. RStudio <https://rstudio.com/products/rstudio/download/> and download the FREE version.
 
 ---
 
