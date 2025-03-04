@@ -15,7 +15,8 @@ The Wistar Bioinformatics Class  is a 11-week research training program for PCOM
 
 ### Programs to Install
 
-1. Slack <https://slack.com/>, our slack name is `wistar_bioinfo_spring2025`. 
+1. Slack <https://slack.com/>, our slack name is `wistar_bioinfo_spring2025`.  
+   Join Slack [bioinfo group](https://join.slack.com/t/bioinfospring2025/shared_invite/zt-31aqz3j8g-Ha7eNObbwzGDP1U9Wr7wRg) or email me jmadzo@wistar.org
 2. R  <https://cloud.r-project.org/> to download and install R.
 3. RStudio <https://rstudio.com/products/rstudio/download/> and download the FREE version.
 
@@ -29,7 +30,7 @@ The Wistar Bioinformatics Class  is a 11-week research training program for PCOM
 
 - Introduction to Bioinformatics Research
 - Introduction to Rmarkdown and RStudio
-- [slides]()
+- [slides](Bioinfo_class_week1.1_03_04_2025.pptx)
 - demo [Rmd]() and its html [html]()
 
 ---
