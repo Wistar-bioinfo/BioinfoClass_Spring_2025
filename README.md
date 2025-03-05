@@ -32,7 +32,7 @@ The Wistar Bioinformatics Class  is a 11-week research training program for PCOM
 - Introduction to Bioinformatics Research
 - Introduction to Rmarkdown and RStudio
 - [slides](Bioinfo_class_week1.1_03_04_2025.pdf)
-- demo [Markdown](Bioinformatics_Class_2025_bc.md)
+- demo [Markdown](Bioinformatics_Class_2025.md)
 - demo MarkDown [qmd](2025_03_04_rmarkdown.qmd) and its html [html](2025_03_04_rmarkdown.html)
 - demo `dplyr` [qmd](2025_03_04_dplyr_demo.qmd) and its html [html](2025_03_04_dplyr_demo.html)
 
