@@ -9,14 +9,15 @@ The Wistar Bioinformatics Class  is a 11-week research training program for PCOM
 ![calendar](BioInfo_schedule.png)
 
 ### Webpage mirror
-[BioinfoClass_Spring_2025](https://wistar-bioinfo.github.io/BioinfoClass_Spring_2025)
+[Bioinfo Class Spring 2025](https://wistar-bioinfo.github.io/BioinfoClass_Spring_2025)
+
 ---
 
 ## Getting Started
 
 ### Programs to Install
 
-1. Slack <https://slack.com/>, our slack name is `wistar_bioinfo_spring2025`.  
+1. Slack <https://slack.com/> our slack name is `wistar_bioinfo_spring2025`.  
    Join Slack [bioinfo group](https://join.slack.com/t/bioinfospring2025/shared_invite/zt-31aqz3j8g-Ha7eNObbwzGDP1U9Wr7wRg) or email me jmadzo@wistar.org
 2. R  <https://cloud.r-project.org/> to download and install R.
 3. RStudio <https://rstudio.com/products/rstudio/download/> and download the FREE version.
@@ -32,13 +33,14 @@ The Wistar Bioinformatics Class  is a 11-week research training program for PCOM
 - Introduction to Bioinformatics Research
 - Introduction to Rmarkdown and RStudio
 - [slides](Bioinfo_class_week1.1_03_04_2025.pdf)
-- resource [Markdown](https://www.markdownguide.org/cheat-sheet/)
+- more resource about [Markdown](https://www.markdownguide.org/cheat-sheet/)
 - demo MarkDown [qmd](2025_03_04_rmarkdown.qmd) and its html [html](2025_03_04_rmarkdown.html)
-- demo `dplyr` [qmd](2025_03_04_dplyr_demo.qmd) and its html [html}(2025_03_04_dplyr_demo.html)
+- demo `dplyr` [qmd](2025_03_04_dplyr_demo.qmd) and its html [html](2025_03_04_dplyr_demo.html)
 
 ---
 
 <!---
+
 #### **Week 2:** Basic R programing 
 
 ##### Tuesday - Basic R programing
