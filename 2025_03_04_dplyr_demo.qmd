@@ -20,6 +20,7 @@ Install packages
 ```
 
 ### Load library
+
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(conflicted)
@@ -185,8 +186,8 @@ iris %>%
 The `select()` function allows you to pick only the columns you want
 
 ```{r}
-### For the select() function, you just give it the names of the columns you 
-### want. For more complicated selection criteria, you probably need to use 
+### For the select() function, you just give it the names of the columns you
+### want. For more complicated selection criteria, you probably need to use
 ### select_if() or select_at() which are beyond the scope of this presentation.
 iris %>%
   select(Species, Sepal.Length, Sepal.Width)
@@ -204,7 +205,7 @@ iris %>%
 The function `filter()` allows you select a subset of the data according to some criteria. This could be by matching a variable like `sample == 's42'` or could be base on some numberic value like `Sepal.Width < 3 | Sepal.Width > 4`
 
 ```{r}
-### filter takes that name of the column you want to filter on and some 
+### filter takes that name of the column you want to filter on and some
 ### logical condition. Here, we'll get only the rows of the table for samples
 ### with Sepal.Lengths greater than 4.5 cms.
 iris %>%
@@ -215,7 +216,7 @@ iris %>%
 
 ### You can filter by as many things as you want
 iris %>%
-  filter(Sepal.Length > 4.5, Species %in% c('virginica', 'versicolor'), 
+  filter(Sepal.Length > 4.5, Species %in% c('virginica', 'versicolor'),
          Sepal.Width < 3, Petal.Length > 5, Petal.Width > 1.5)
 ```
 
