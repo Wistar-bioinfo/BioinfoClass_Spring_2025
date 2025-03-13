@@ -24,7 +24,8 @@ Today will focus on the basics of how to use `ggplot`, with all examples with th
 You have to specify a data table, at least one column from the table, and a geometry.
 
 ```{r}
-ggplot(iris, aes(x = Petal.Length, y = Petal.Width)) + geom_point()
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width)) + 
+  geom_point()
 ```
 
 The scale of the axes are automatically determined from the data and they're labelled witht the column name.
@@ -81,7 +82,8 @@ ggplot(iris, aes(x = Sepal.Width, fill = Species)) +
 **Density plot**
 
 ```{r}
-ggplot(iris, aes(x = Sepal.Width, color = Species)) + geom_density() 
+ggplot(iris, aes(x = Sepal.Width, color = Species)) + 
+  geom_density() 
 ```
 
 ##### Discrete
@@ -89,7 +91,8 @@ ggplot(iris, aes(x = Sepal.Width, color = Species)) + geom_density()
 **Bar plot**
 
 ```{r}
-ggplot(iris, aes(x = Species, fill = Species)) + geom_bar()
+ggplot(iris, aes(x = Species, fill = Species)) + 
+  geom_bar()
 ```
 
 `geom_bar()` counts the variable for you. If you have an existing count you want to use, you have to use either `geom_bar(stat = 'identity')` or `geom_col()`
@@ -118,17 +121,23 @@ ggplot(aes(x = Species, y = n, fill = Species)) +
 **Scatter plot**
 
 ```{r}
-ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + geom_point()
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + 
+  geom_point()
 ```
 
 **Line plot**
 
 ```{r}
+  ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + 
+    geom_point() +
+    geom_line()
+
 iris %>% 
-  filter(Species != "versicolor") %>% 
+  #filter(Species != "versicolor") %>% 
   ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + 
-    geom_line() + 
-    geom_point()
+    geom_point() +
+    geom_line()
+    
 ```
 
 **Adding a line of best fit**
@@ -137,10 +146,14 @@ If you want to fit a straight line (or other type of fit) to your scatter plot, 
 
 ```{r}
 # with line of best fit
-ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length)) + geom_point() + geom_smooth(method = lm)
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length)) + 
+  geom_point() + 
+  geom_smooth(method = lm)
 
 # if you color by something, each subgroup will automatically get it's own line
-ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + geom_point() + geom_smooth(method = lm)
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + 
+  geom_point() + 
+  geom_smooth(method = lm)
 ```
 
 #### Discrete X, Continuous Y
@@ -157,7 +170,8 @@ ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) +
 A violin plot is a mirrored density plot displayed like a boxplot. It gives you a better sense of the distribution of the underlying data than the five number summary of the boxplot.
 
 ```{r}
-ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) + geom_violin()
+ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) + 
+  geom_violin()
 ```
 
 If you want to overlay a bar/boxplot/violin plot with the actual data points, you can add `geom_jitter()` on
@@ -179,10 +193,14 @@ Even better than geom_jitter, there's the ggbeeswarm package, which has differen
 library(ggbeeswarm)
 
 # example 1
-ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) + geom_violin() + geom_quasirandom()
+ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) + 
+  geom_violin() + 
+  geom_quasirandom()
 
 # example 2 with modified method
-ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) + geom_violin() + geom_quasirandom(method = 'smiley')
+ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) + 
+  geom_violin() + 
+  geom_quasirandom(method = 'smiley')
 ```
 
 <br>
@@ -194,19 +212,22 @@ ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) + geom_violin()
 **Color**
 
 ```{r}
-ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + geom_point()
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + 
+  geom_point()
 ```
 
 **Shape**
 
 ```{r}
-ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, shape = Species)) + geom_point()
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, shape = Species)) + 
+  geom_point()
 ```
 
 **Size**
 
 ```{r}
-ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, size = Species)) + geom_point()
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, size = Species)) + 
+  geom_point()
 ```
 
 ### Combine as many as you want
@@ -271,7 +292,9 @@ ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + geom_poi
 Sometimes you might want to make multiple plots based on an element in your data like: significant/not significant, sample, phenotype, etc. If it's a label in your table, you can add a facet to automatically split it.
 
 ```{r}
-ggplot(iris, aes(x = Sepal.Width, fill = Species)) + geom_density() + facet_grid(. ~ Species)
+ggplot(iris, aes(x = Sepal.Width, fill = Species)) + 
+  geom_density() + 
+  facet_grid(. ~ Species)
 ```
 
 You can also make the facets line up vertically by switching the syntax in `facet_grid()`
@@ -292,7 +315,7 @@ The best practice is to have your column names and labels in your data table for
 
 ```{r}
 # plot before labelling
-ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + geom_point()
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + geom_density_2d()
 
 # with labels added
 ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + geom_point() + 
@@ -330,7 +353,9 @@ ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + geom_poi
 **theme_classic()** This is the one I use
 
 ```{r}
-ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + geom_point() + theme_classic()
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + 
+  geom_point() + 
+  theme_classic()
 ```
 
 **theme_minimal()**
@@ -374,7 +399,9 @@ library(viridis)
 
 ```{r}
 # two different ways of specifying a discrete scale; continuous is the default
-ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + geom_point(size = 4) + scale_color_viridis(discrete = TRUE)
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) + 
+  geom_point(size = 4) + 
+  scale_color_viridis(discrete = TRUE)
 
 ### OR
 
