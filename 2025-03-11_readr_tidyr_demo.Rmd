@@ -7,7 +7,7 @@ filter <- dplyr::filter
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 2021-07-09 Reading Data with `readr` and Tidying/Wrangling Data with `tidyr`
+## 2025-03-11 Reading Data with `readr` and Tidying/Wrangling Data with `tidyr`
 
 ### `readr`
 
@@ -22,17 +22,17 @@ Up until now, we have been using data that comes with R or R packages. But when 
 You can read a file in using either the file path or you can read a file using a URL. Since this is a CSV file (you can tell because the file ends in `.csv`), we could used `read_csv()` to read it in, but we'll use `read_delim()` instead to demonstrate.
 
 ```{r}
-read_delim("https://raw.githubusercontent.com/WSJ/measles-data/master/all-measles-rates.csv",
-           delim = ',') -> measles
+measles <- read_delim("https://raw.githubusercontent.com/WSJ/measles-data/master/all-measles-rates.csv",
+           delim = ',')
 ```
 
 Let's make a change and then save the table to our local machine using `write_tsv()`
 
 ```{r}
-measles %>%
+measles2 <- measles %>%
 # Forgot to mention this in the dplyr demo; you can drop a column by putting 
 # a - in front of the column name in select()
-  select(-index) -> measles2
+  select(-index)
 
 # To save, give the name of the table and the file name you'd like to save it as
 write_tsv(measles2, 'measles_vaccination_rates.tsv')
@@ -46,7 +46,7 @@ Read the file we've just written back in.
 dir()
 
 # Read the file back in
-read_tsv('measles_vaccination_rates.tsv') -> measles_read
+measles_read <- read_tsv('measles_vaccination_rates.tsv')
 ```
 
 ### `tidyr`
@@ -130,8 +130,19 @@ table5 %>% unite(year, c('century', 'year'), sep = '')
 You may have noticed that the rate column in table5 is the same as the rate column in table3 and contains two values. Chain together some of the tidyr functions above to completely tidy table5.
 
 ```{r}
-table5 %>% 
-  unite(year, c('century', 'year'), sep = '') %>% 
+a_var = table5
+
+b_var <- unite(a_var, year, c('century', 'year'), sep = '')
+
+c_var <- separate(b_var, rate, into = c('cases', 'population'), sep = '/')
+
+c_var
+```
+
+
+```{r}
+table5 |>
+  unite(year, c('century', 'year'), sep = '') |> 
   separate(rate, into = c('cases', 'population'), sep = '/')
 ```
 
@@ -305,6 +316,8 @@ NAs are bad not only because you're missing data, but also because many function
 
 ```{r}
 mean(starwars$birth_year)
+
+mean(starwars$birth_year, na.rm = TRUE)
 ```
 
 #### `na.omit()`

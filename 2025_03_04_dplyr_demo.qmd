@@ -13,8 +13,8 @@ Install packages
 
 ```{r}
 # uncomment the packages and install
-# install.packages('tidyverse')
-# install.packages('conflicted')
+install.packages('tidyverse')
+install.packages('conflicted')
 
 # if the packages aren't loaded run the topmost chunk in this document
 ```
@@ -70,7 +70,7 @@ dim(iris)
 Square brackets `[]`
 
 ```{r}
-iris[]
+iris[,1]
 ```
 
 Dollar sign subsetting `$`
@@ -91,6 +91,12 @@ iris[1:5,2:4]
 # list the exact rows and columns you want
 iris[c(37, 49, 132, 12, 77), c(1, 3)]
 ```
+```{r}
+a=10**2
+
+a
+```
+
 
 ### Logicals
 
@@ -122,6 +128,11 @@ These operators are how you compare values to each other. Keep them in mind for 
 Subset tables with logicals
 
 ```{r}
+iris[iris$Sepal.Length >= 5,]
+```
+
+
+```{r}
 # get all columns and all rows where sepal length is greater than or equal to 5
 iris[iris$Sepal.Length >= 5,]
 
@@ -140,18 +151,41 @@ iris %>% head()
 You can chain as many pipes as you want together and you can also pipe into `ggplot()`
 
 ```{r}
-iris %>% filter(Species == 'setosa') %>% select(Sepal.Length, Sepal.Width)
+# iris[iris$Species == "setosa",]
+# 
+# filter(iris, Species == 'setosa')
+# 
+
+
+iris %>% 
+  filter(Species == 'setosa') %>% 
+  select(Sepal.Length, Sepal.Width)
+
+
+# select(filter(iris,Species == 'setosa'), Sepal.Length, Sepal.Width)
 ```
 
 ### Assignment
 
-The assignment operator, `->` saves the current output as an object (aka a data structure) to whatever name you pick. You can save data of any format this way.
+The assignment operator, `<-` saves the current output as an object (aka a data structure) to whatever name you pick. You can save data of any format this way.
+
+```{r}
+a <- 5*5
+
+a
+```
+
 
 ```{r}
 new_iris <- iris %>% filter(Species == 'setosa') %>% select(Sepal.Length, Sepal.Width)
 
 new_iris
 ```
+
+```{r}
+new_iris
+```
+
 
 <br>
 
@@ -192,12 +226,13 @@ The `select()` function allows you to pick only the columns you want
 iris %>%
   select(Species, Sepal.Length, Sepal.Width)
 
-iris %>%
-  select(Species:Sepal.Width) -> select_example
+select_example <- iris %>%
+  select(Species:Sepal.Width)
+
 select_example
 
 iris %>%
-  select(species = Species, Sepal.Length, Sepal.Width)
+  select(species = Species, sl = Sepal.Length, sw = Sepal.Width)
 ```
 
 ### `filter()`
@@ -256,8 +291,13 @@ iris %>%
 iris %>%
   mutate(flower_size = case_when(Sepal.Length < 3 ~ 'small',
                                  Sepal.Length >= 3 & Sepal.Length < 6 ~ 'medium',
-                                 TRUE ~ 'large'))
+                                 .default = as.character('large')
+                                 )
+         )
+         
 ```
+
+
 
 ### `summarize()`
 
@@ -300,6 +340,11 @@ iris %>%
             sd_pw = sd(Petal.Width)) %>%
   ungroup()
 ```
+
+```{r}
+# plot(iris$Sepal.Length, iris$Sepal.Width)
+```
+
 
 #### `count()`
 
