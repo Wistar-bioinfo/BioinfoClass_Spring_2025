@@ -1,0 +1,20 @@
+---
+title: "Tidying and Wrangling Data"
+author: "jm"
+format: html
+editor: visual
+---
+
+## 2025-03-11/13 Reading Data with `readr` and Tidying/Wrangling Data with `tidyr`
+
+### `readr`
+
+Up until now, we have been using data that comes with R or R packages. But when you start an analysis, you'll have data that you want to work with and you need to import it into R so you can do stuff to it. The tidyverse has a package `readr` for reading and writing files; to read files in you use the `read_*()` set of functions. To select the appropriate function, you need to know what your plain text file is delimited by, what character is used to separate the data. Then you can select the appropriate one of the three functions below:
+
+-   `read_delim()` = can read in any plain text file if you supply the delimiter
+    -   `read_csv()` = reads in plain text files separated by commas (csv = comma separated value)
+    -   `read_tsv()` = reads in plain text files separated by tabs, written as "\t" in plain text (tsv = tab separated value)
+
+------------------------------------------------------------------------
+
+You can read a file in using either the file path or you can read a file using a URL. Since this is a CSV file (you can tell because the file ends in `.csv`), we could used `read_csv()` to read it in, but we'll use `read_delim()` instead to demonstrate.
