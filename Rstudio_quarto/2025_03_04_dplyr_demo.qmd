@@ -91,12 +91,12 @@ iris[1:5,2:4]
 # list the exact rows and columns you want
 iris[c(37, 49, 132, 12, 77), c(1, 3)]
 ```
+
 ```{r}
 a=10**2
 
 a
 ```
-
 
 ### Logicals
 
@@ -130,7 +130,6 @@ Subset tables with logicals
 ```{r}
 iris[iris$Sepal.Length >= 5,]
 ```
-
 
 ```{r}
 # get all columns and all rows where sepal length is greater than or equal to 5
@@ -175,7 +174,6 @@ a <- 5*5
 a
 ```
 
-
 ```{r}
 new_iris <- iris %>% filter(Species == 'setosa') %>% select(Sepal.Length, Sepal.Width)
 
@@ -185,7 +183,6 @@ new_iris
 ```{r}
 new_iris
 ```
-
 
 <br>
 
@@ -297,8 +294,6 @@ iris %>%
          
 ```
 
-
-
 ### `summarize()`
 
 Lets you reduce the data down to some summary statistics or other summary function
@@ -344,7 +339,6 @@ iris %>%
 ```{r}
 # plot(iris$Sepal.Length, iris$Sepal.Width)
 ```
-
 
 #### `count()`
 
