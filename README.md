@@ -59,7 +59,7 @@ The Wistar Bioinformatics Class  is a 11-week research training program for PCOM
 
 ##### Tuesday - Statistical I: Scientific Foundations 
 
-- [slides](slides/)
+- [slides](slides/Bioinfo_class_week3_03_18_2025.pdf)
 
 <!---
 
